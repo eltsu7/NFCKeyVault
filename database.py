@@ -12,4 +12,7 @@ class Database:
         self.db.commit()
 
     def is_key_in_db(self, key):
-        return key in self.db["keys"]["keys"]
+        try:
+            return key in self.db["keys"]["keys"]
+        except KeyError:
+            return False
